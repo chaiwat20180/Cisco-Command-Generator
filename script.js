@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('#currentYear').text(`2024 - ${new Date().getFullYear()}`);
     let vlanNames = []; // ตัวแปรเพื่อเก็บชื่อ VLAN
 
     $('#vlanCount').on('input', function() {
