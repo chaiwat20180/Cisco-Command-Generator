@@ -81,21 +81,22 @@ $(document).ready(function() {
             // สร้าง Access Port และ Interface Range
             const portAccessType = $('#portAccessType').val();
             //const portAccess = $('#portAccess').val();
-            const isTrunk = $('#trunkPort').is(':checked');
+            const isTrunk = $('#PortTrunk').is(':checked');
+            const isTrunkRange = $('#PortTrunkRange').is(':checked');
             const interfaceRangeType = $('#interfaceRangeType').val();
             //const interfaceRange = $('#interfaceRange').val();
 
             if (interfaceRange) {
                 commands += `interface range ${interfaceRangeType} ${interfaceRange}\n`;
-                if (isTrunk) {
+                if (isTrunkRange) {
                     commands += `switchport trunk encapsulation dot1q\n`;
                     commands += `switchport mode trunk\n`;
                 }
                 else{
                     commands += `switchport mode access\n`;
-                commands += `switchport access vlan ${$('#vlanSelect').val()}\n`; 
+                    commands += `switchport access vlan ${$('#vlanSelect').val()}\n`; 
                 }
-                commands += `sh\nno sh\n`;
+                commands += `shutdown\nno shutdown\n`;
             } else if (portAccess) {
                 commands += `interface ${portAccessType} ${portAccess}\n`;
                 if (isTrunk) {
@@ -105,10 +106,10 @@ $(document).ready(function() {
                     commands += `switchport mode access\n`;
                     commands += `switchport access vlan ${$('#vlanSelect').val()}\n`; 
                 }
-                commands += `sh\nno sh\n`;
+                commands += `shutdown\nno shutdown\n`;
             }
 
-            commands += `end\nwr mem\n\n`;
+            commands += `end\nwrite memory\ncopy running-config startup-config\n\n`;
 
             if (commands) {
                 $('#output').val(commands);
@@ -136,7 +137,7 @@ $(document).ready(function() {
     });
 });
 
-// ฟังก์ชัน copy_data ที่อยู่นอก $(document).ready()
+// Just Function Copy data >w<
 function copy_data() {
     const textArea = $("#output");
     const tempElement = $("<textarea></textarea>").val(textArea.val());
