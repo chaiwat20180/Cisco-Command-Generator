@@ -41,9 +41,9 @@
                     </select>
                     <input type="text" class="form-control mt-2" id="portAccess" placeholder="Port Number (Sample ->  0/1)">
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="trunkPort">
-                    <label class="form-check-label" for="trunkPort">Trunk</label>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input" type="checkbox" id="PortTrunk" name="PortTrunk">
+                    <label class="form-check-label" for="PortTrunk">Port Trunk</label>
                 </div>
                 <hr>
                 <div class="form-group">
@@ -55,11 +55,11 @@
                     <input type="text" class="form-control mt-2" id="interfaceRange" placeholder="Range Port (Sample ->  0/1-24)">
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="trunkPort">
-                    <label class="form-check-label" for="trunkPort">Trunk</label>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input" type="checkbox" id="PortTrunkRange" name="PortTrunkRange">
+                    <label class="form-check-label" for="PortTrunkRange">Port Trunk</label>
                 </div>
-
+                <hr>
                 <div class="form-group mt-4">
                     <label for="vlanSelect">เลือก VLAN:</label>
                     <select class="form-control" id="vlanSelect">
