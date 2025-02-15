@@ -8,31 +8,53 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
-        .copyright{
+        .copyright {
             text-align: center;
             margin-top: 10px;
             font-size: 0.9rem;
             color: #888;
         }
+        .wave-text {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: color-change 10s linear infinite;
+        }
+
+        @keyframes color-change {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
     </style>
 </head>
 <body style="background: #404040;">
-    <div class="container mt-5 p-5 bg-white rounded-1 mb-5">
-        <div class="d-flex align-items-center">
+    <div class="container mt-5 p-4 bg-white rounded-1 mb-5">
+        <div class="d-flex flex-column flex-md-row align-items-center">
             <h1 class="me-2">Cisco Command Generator</h1>
             <h6><span class="badge bg-primary mt-3 me-2">Ver.0.0.1</span></h6>
-            <button class="btn btn-danger" id="showDetailSubnet"> About Subnet? & Table IP Calculator </button>
+            <button class="btn btn-danger mt-2 mt-md-0" id="showDetailSubnet">About Subnet? & Table IP Calculator</button>
         </div>
         <hr>
         <div class="row mt-5">
-            <div class="col-lg-6">
+            <div class="col-12 col-md-6">
                 <div class="form-group">
                     <label for="vlanCount">จำนวน VLAN:</label>
                     <input type="number" class="form-control" id="vlanCount" min="1">
                 </div>
                 <div id="vlanInputs"></div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-12 col-md-6">
                 <div class="form-group">
                     <label for="portAccessType">Access Port (Only Port):</label>
                     <select class="form-control" id="portAccessType">
@@ -54,10 +76,9 @@
                     </select>
                     <input type="text" class="form-control mt-2" id="interfaceRange" placeholder="Range Port (Sample ->  0/1-24)">
                 </div>
-
                 <div class="form-check form-switch mt-3">
                     <input class="form-check-input" type="checkbox" id="PortTrunkRange" name="PortTrunkRange">
-                    <label class="form-check-label" for="PortTrunkRange">Port Trunk</label>
+                    <label class ="form-check-label" for="PortTrunkRange">Port Trunk</label>
                 </div>
                 <hr>
                 <div class="form-group mt-4">
@@ -66,18 +87,26 @@
                         <option id="selectvlan"></option>
                     </select>
                 </div>
-                
-                <button class="btn btn-primary mt-4" id="generateBtn">Generate Commands</button>
-                <button class="btn btn-danger mt-4" id="CopyCommand" onClick="copy_data();">Copy Command</button>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn btn-primary mt-4 w-100" id="generateBtn">Generate Commands</button>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-danger mt-4 w-100" id="CopyCommand" onClick="copy_data();">Copy Command</button>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-success mt-4 w-100" id="showDetailTrunk">About Trunk</button>
+                        </div>
+                    </div>
+                </div>
                 <h4 class="mt-4">Generated Commands:</h4>
                 <textarea id="output" class="form-control" rows="10" disabled></textarea>
-                
             </div>
         </div>
         <div class="col-12">
             <div class="copyright mt-5">
-                &copy; <span id="currentYear"></span> <a href="https://github.com/chaiwat20180"
-                    class="text-decoration-none">Chaiwat Kwanta</a> All rights reserved.
+                &copy; <span id="currentYear"></span> <a href="https://github.com/chaiwat20180" class="text-decoration-none">Chaiwat Kwanta</a> All rights reserved.
             </div>
         </div>
     </div>
@@ -85,4 +114,4 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
