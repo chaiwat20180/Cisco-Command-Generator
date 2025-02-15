@@ -135,9 +135,87 @@ $(document).ready(function() {
             icon: "info"
         });
     });
+    $('#showDetailTrunk').click(function(){
+        Swal.fire({
+            html: `
+                <div class="text-center mb-3 wave-text">
+                    <h1>Trunk Detail</h1>
+                </div>
+                <hr>
+                <div class="text-center mb-3">
+                    <h5>สำหรับ Switch L2</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered bg-primary" style="font-size:0.6rem;">
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">Command</th>
+                                <th style="width: 150px;">คำอธิบาย</th>
+                                <th style="width: 200px;">ตัวอย่าง</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>switchport mode trunk</td>
+                                <td>คำสั่งนี้ใช้ได้ทั้ง Swithc L2&L3</td>
+                                <td class="text-start">
+                                    interface gi 0/1 <br>
+                                    switchport mode trunk<br>
+                                    shutdown<br>
+                                    no shutdown<br>
+                                    end
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>switchport trunk allowed vlan .....</td>
+                                <td>คำสั่งนี้ใช้ได้ทั้ง Swithc L2&L3 ใช้ในการจ่าย Vlan ไปยัง Switch ที่เชื่อมต่อ</td>
+                                <td class="text-start">
+                                    interface gi 0/1 <br>
+                                    switchport mode trunk<br>
+                                    switchport trunk allowed vlan 10,20,30<br>
+                                    shutdown<br>
+                                    no shutdown<br>
+                                    end
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mb-3">
+                    <h5>สำหรับ Switch L3</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered bg-primary" style="font-size:0.6rem;">
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">Command</th>
+                                <th style="width: 150px;">คำอธิบาย</th>
+                                <th style="width: 200px;">ตัวอย่าง</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>switchport trunk encapsulation dot1q</td>
+                                <td>คำสั่งนี้ใช้ได้แค่ Swithc L3 เท่านั้น</td>
+                                <td class="text-start">
+                                    interface gi 0/1 <br>
+                                    switchport trunk encapsulation dot1q<br>
+                                    switchport mode trunk<br>
+                                    shutdown<br>
+                                    no shutdown<br>
+                                    end
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+            icon: "info"
+        });
+    });
 });
 
-// Just Function Copy data >w<
+// ฟังก์ชัน copy_data ที่อยู่นอก $(document).ready()
 function copy_data() {
     const textArea = $("#output");
     const tempElement = $("<textarea></textarea>").val(textArea.val());
