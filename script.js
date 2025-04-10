@@ -128,9 +128,9 @@ $(document).ready(function() {
         Swal.fire({
             title: "Subnet Detail",
             html: `
-                    <img src="https://cdn.discordapp.com/attachments/1251812454699237417/1338810395292598292/class_a_subnets.png?ex=67ac6fd8&is=67ab1e58&hm=e90928390e85d8d38c11c166b4ad87812ff6be6de706221cb77213a0c8c9e34f&" style="width: 100%; height: auto;">
+                    <img src="image/class_subnets.jpg" style="width: 100%; height: auto;">
                     <h2 class="mt-4 text-center">IP Calculator</h2>
-                    <img src="https://cdn.discordapp.com/attachments/1251812454699237417/1338812677627056128/images.png?ex=67ac71f8&is=67ab2078&hm=97dd8a4343a9e4fbaf2df7453b7cb4bb26f6dfdc28e1fa8097e4bcb1e1b6f1fc&" style="width: 100%; height: auto;">
+                    <img src="image/ip_cal.webp" style="width: 100%; height: auto;">
             `,
             icon: "info"
         });
